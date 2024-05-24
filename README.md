@@ -4,7 +4,18 @@
 
 ### Pick Meaningful Names
 
-### Run Through CoPilot or ChatGPT on Namings
+### Run Through Copilot or ChatGPT on Namings
+
+If you aren't sure about certain English grammar related issues. Ask Copilot to fix them for you. For example, the following assert message `User is not exist.` is not following correct grammar. You can 
+
+```csharp
+Assert(State.UserList.Value.Users.FirstOrDefault(v =>v.Id == input.User.Id) != null, "User is not exist.");
+```
+Below is an example showing how you could prompt Copilot to fix such issues for you.
+
+![Use Copilot to fix English grammar issues](./assets/use-copilot-to-fix-english-grammar-issues.png)
+
+Besides string literals in assert messages, you could ask Copilot to suggest better names for your methods as well. This is citical as a good names help you communicate the intention of your code and hence improves your code readability. For example you can select your method and prompt Copilot like `Help me pick a suitable name for the method.` You can choose from the suggested names given by Copilot.
 
 ### Write Small Methods
 
