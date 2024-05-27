@@ -4,6 +4,30 @@
 
 ### Pick Meaningful Names
 
+Meaningful names are critical to convey your design intention and help the readers understand the code. Please always try to pick suitable names for states, variables and method names. For example, changing the vague `list` name to `distinctNewControllers` makes the code easier to understand.
+
+```csharp
+    public override Empty AddController(AddressList input)
+    {
+        ...
+        var list = input.Data.Distinct().Except(State.Controller.Value.Data).ToList();
+        ...
+
+        return new Empty();
+    }
+```
+
+```csharp
+    public override Empty AddController(AddressList input)
+    {
+        ...
+        var distinctNewControllers = input.Data.Distinct().Except(State.Controller.Value.Data).ToList();
+        ...
+
+        return new Empty();
+    }
+```
+
 ### Run Through Copilot or ChatGPT on Namings
 
 If you aren't sure about certain English grammar related issues. Ask Copilot to fix them for you. For example, the following assert message `User is not exist.` is not following correct grammar. You can 
@@ -255,3 +279,9 @@ Tip: GitHub Copilot can be used to help you add a proper documentation for your 
 ![](./assets/use-copilot-to-help-prepare-method-documentation.jpg)
 
 ## Follow Check-Effect-Interaction Pattern
+
+Try to break down your method logics into the following 3 steps:
+
+1. Check: Validate the input data and required permissions
+2. Effects: Update contract states
+3. Interaction: Send inline calls to other contracts
